@@ -34,8 +34,8 @@ WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
 
 --Question 3
 SELECT dm.dept_no AS department_number, d.dept_name AS department_name, e.emp_no AS employee_number, e.last_name, e.first_name
-FROM dept_manager dm
-JOIN departments d ON dm.dept_no = d.dept_no
+FROM "Dept_Manager" dm
+JOIN "Departments" d ON dm.dept_no = d.dept_no
 JOIN employees e ON dm.emp_no::int = e.emp_no;
 
 --Question 4
@@ -66,14 +66,14 @@ WHERE first_name = 'Hercules' AND last_name LIKE 'B%';
 SELECT e.emp_no AS employee_number, e.last_name, e.first_name
 FROM employees e
 JOIN dept_emp de ON e.emp_no = de.emp_no
-JOIN departments d ON de.dept_no = d.dept_no
+JOIN "Departments" d ON de.dept_no = d.dept_no
 WHERE d.dept_name = 'Sales';
 
 --Question 7
 SELECT e.emp_no, e.last_name, e.first_name, d.dept_name AS department_name
 FROM employees e
 JOIN dept_emp de ON e.emp_no = de.emp_no
-JOIN departments d ON de.dept_no = d.dept_no
+JOIN "Departments" d ON de.dept_no = d.dept_no
 WHERE d.dept_name IN ('Sales', 'Development');
 
 --Question 8
